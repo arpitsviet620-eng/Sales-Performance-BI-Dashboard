@@ -1,47 +1,55 @@
-
 # Sales Performance & Business Intelligence Dashboard
 
 ## Objective
-Analyze sales data to identify revenue trends, profitable products, customer behavior, and regional performance.
+
+Analyze sales data to identify revenue trends, profitable products, customer performance, and regional performance.
 
 ## Tools
+
 Python, Pandas, NumPy, SQL/MySQL, Power BI, Excel, Git/GitHub.
 
-## Project structure
-- sales_raw.csv -> intentionally dirty source data
-- sales_cleaned.csv -> cleaned and feature-engineered dataset
-- sales_analysis.xlsx -> Excel analysis workbook
-- sales_eda.py -> Python EDA and cleaning script
-- sales_queries.sql -> MySQL database and analysis queries
-- powerbi_dax.txt -> Power BI Date table and KPI measures
-- README.md -> complete project guide
+## Project Structure
 
-## Step 1: Python setup
-Create a virtual environment if desired, then install:
-pip install pandas numpy matplotlib openpyxl
+- `sales_raw.csv` → Raw sales dataset
+- `sales_cleaned.csv` → Cleaned and feature-engineered dataset
+- `sales_analysis.xlsx` → Excel analysis workbook
+- `sales_eda.py` → Python data cleaning and EDA script
+- `sales_queries.sql` → SQL database setup and analysis queries
+- `powerbi_dax.txt` → Power BI DAX measures
+- `business_insights_report.md` → Business insights report
+- `monthly_revenue.png` → Monthly revenue visualization
+- `region_revenue.png` → Regional revenue visualization
+- `Sales_Performance_BI_Dashboard.pbix` → Power BI dashboard
 
-Run:
-python sales_eda.py
+## Data Preparation
 
-## Step 2: SQL
-1. Open MySQL Workbench.
-2. Run sales_queries.sql.
-3. Import sales_cleaned.csv into the `sales` table.
-4. Run the analysis queries.
+The raw sales dataset was cleaned using Python and Pandas.
 
-## Step 3: Power BI
-1. Open Power BI Desktop.
-2. Get Data -> Text/CSV -> sales_cleaned.csv.
-3. Load the data.
-4. Create DateTable using the DAX in powerbi_dax.txt.
-5. Create a relationship DateTable[Date] -> Sales[Order_Date].
-6. Add the KPI measures.
-7. Build the dashboard described below.
+Key steps:
 
-## Dashboard pages
+- Removed duplicate Order_ID records
+- Handled missing Region values
+- Filled missing Discount values
+- Converted Order_Date into date format
+- Created Year, Month and Year_Month fields
+- Calculated Profit Margin
 
-### Page 1 — Executive Overview
-Cards:
+## SQL Analysis
+
+SQL was used for:
+
+- KPI analysis
+- Monthly revenue and profit trends
+- Regional performance
+- Category performance
+- Top products by revenue
+- Customer performance
+- Year-wise revenue and profit analysis
+
+## Power BI Dashboard
+
+### KPI Cards
+
 - Total Revenue
 - Total Profit
 - Profit Margin
@@ -49,38 +57,51 @@ Cards:
 - Total Quantity
 - Average Order Value
 
-Charts:
-- Line chart: Revenue by Year Month
-- Column chart: Revenue by Region
-- Bar chart: Revenue by Category
+### Visualizations
+
+- Monthly Revenue Trend
+- Revenue by Region
 - Top 10 Products by Revenue
-- Slicers: Year, Region, Category
+- Customer Performance
 
-### Page 2 — Product & Regional Analysis
-- Matrix: Region x Category with Revenue and Profit
-- Bar chart: Top Products
-- Bar chart: Bottom Products
-- Column chart: Profit by Region
-- Slicers: Date, Region, Category
+### Interactive Filters
 
-### Page 3 — Trend Analysis
-- Monthly Revenue
-- Monthly Profit
-- YoY Revenue %
-- Revenue by Year
-- Profit Margin trend
+- Year
+- Region
 
-## Business insights to discuss
-Use the dashboard to answer:
-1. Which region generates the most revenue?
-2. Which category is most profitable?
-3. Which products are top sellers?
-4. Which months have the highest revenue?
-5. Which region has the highest profit margin?
-6. How did revenue change year-over-year?
-7. Where should management focus inventory and marketing?
+## Key Business Metrics
 
-Do not invent the answers in the report; read them from your actual dashboard output.
+- Total Revenue: ₹3,226,273.47
+- Total Cost: ₹2,430,194.47
+- Total Profit: ₹796,079.00
+- Profit Margin: 24.67%
+- Total Orders: 5,000
+- Total Quantity: 20,048
+- Average Order Value: ₹645.25
 
-## Resume bullet
-"Built an end-to-end Sales Performance & BI Dashboard using Python, Pandas, SQL, Excel and Power BI; cleaned sales data, calculated revenue/profit KPIs, analyzed regional and product performance, and developed interactive dashboards for business insights."
+## Regional Performance
+
+The West region generated the highest revenue and profit among the analyzed regions.
+
+- West Revenue: ₹835,386.74
+- West Profit: ₹201,605.40
+- West Orders: 1,230
+- West Profit Margin: 24.13%
+
+## Business Insights
+
+The dashboard helps management:
+
+- Monitor sales and profitability
+- Compare regional performance
+- Identify high-performing products
+- Analyze customer revenue performance
+- Monitor monthly revenue trends
+- Support inventory and marketing decisions
+
+## How to Run
+
+### Python
+
+```bash
+pip install pandas numpy matplotlib openpyxl
